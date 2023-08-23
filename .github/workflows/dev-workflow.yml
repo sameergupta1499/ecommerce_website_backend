@@ -30,7 +30,7 @@ jobs:
 
     steps:
       - name: Install SSH Key
-        uses: shimataro/ssh-key@v2  # Added missing '@v2'
+        uses: shimataro/ssh-key-action@v2  # Added missing '@v2'
         with:
           key: ${{ secrets.RS_SSH_PRIVATE_KEY }}
           known_hosts: 'github-ecommerce-website-backend-knownhost'
