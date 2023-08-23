@@ -22,11 +22,10 @@ class Products(models.Model):
     class Meta:
         db_table = 'products'
         indexes = [
-            models.Index(fields=['page', 'sizes']),  # Basic index for page and sizes columns
             models.Index(fields=['seller', 'page']), # Basic index for seller and page columns
             models.Index(fields=['category', 'gender', 'page']), # Basic index for category, gender, and page columns
             models.Index(fields=['category', 'page']), # Basic index for category and page columns
             models.Index(fields=['gender', 'page']), # Basic index for gender and page columns
-            models.Index(fields=['page']), # Basic index for page column
-            models.Index(fields=['id']), # Primary key index (automatically created by Django for primary keys)
+            models.Index(fields=['seller', 'page']), # Basic index for gender and page columns
+            models.Index(fields=['page'])
         ]
