@@ -103,6 +103,7 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
         'PORT': config('DB_PORT', default='5432'),  # You can provide a default value
+        'CONN_MAX_AGE': 20,
     }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
