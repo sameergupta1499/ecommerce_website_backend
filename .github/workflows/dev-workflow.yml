@@ -43,27 +43,27 @@ jobs:
 
       - name: Deploy with rsync
         if: ${{ github.event.inputs.enableCodeDeployment == 'true' }}
-        run: rsync -avz . ec2-user@${{ secrets.HOST_NAME }}:/home/ec2-user/ecommerce_website/ecommerce_website/ecommerce_website_backend/
+        run: rsync -avz . ec2-user@${{ secrets.HOST_NAME }}:/home/ec2-user/ecommerce_website/ecommerce_website_backend/
 
       - name: Pip install
         if: ${{ github.event.inputs.pipInstall == 'true' }}
         run: |
           ssh ec2-user@${{ secrets.HOST_NAME }} \
-          'cd /home/ec2-user/ecommerce_website/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; pip install -r requirements.txt'
+          'cd /home/ec2-user/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; pip install -r requirements.txt'
 
       - name: Collect static
         if: ${{ github.event.inputs.collectStatic == 'true' }}
         run: |
           ssh ec2-user@${{ secrets.HOST_NAME }} \
-          'cd /home/ec2-user/ecommerce_website/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py collectstatic --noinput'
+          'cd /home/ec2-user/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py collectstatic --noinput'
 
       - name: Run migrations
         if: ${{ github.event.inputs.runMigrations == 'true' }}
         run: |
           ssh ec2-user@${{ secrets.HOST_NAME }} \
-          'cd /home/ec2-user/ecommerce_website/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py migrate'
+          'cd /home/ec2-user/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py migrate'
 
       - name: Run server
         run: |
           ssh ec2-user@${{ secrets.HOST_NAME }} \
-          'cd /home/ec2-user/ecommerce_website/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py runserver 127.0.0.1:8000 &'
+          'cd /home/ec2-user/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py runserver 127.0.0.1:8000 &'
