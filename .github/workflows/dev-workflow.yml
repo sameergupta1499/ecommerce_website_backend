@@ -18,11 +18,11 @@ on:
         required: true
         type: boolean
         default: false
-      collectStatic:
-        description: 'Collect Static'
-        required: true
-        type: boolean
-        default: false
+      # collectStatic:
+      #   description: 'Collect Static'
+      #   required: true
+      #   type: boolean
+      #   default: false
 
 jobs:
   server-deployment:
@@ -51,11 +51,11 @@ jobs:
           ssh ec2-user@${{ secrets.HOST_NAME }} \
           'cd /home/ec2-user/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; pip install -r requirements.txt'
 
-      - name: Collect static
-        if: ${{ github.event.inputs.collectStatic == 'true' }}
-        run: |
-          ssh ec2-user@${{ secrets.HOST_NAME }} \
-          'cd /home/ec2-user/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py collectstatic --noinput'
+      # - name: Collect static
+      #   if: ${{ github.event.inputs.collectStatic == 'true' }}
+      #   run: |
+      #     ssh ec2-user@${{ secrets.HOST_NAME }} \
+      #     'cd /home/ec2-user/ecommerce_website/ecommerce_website_backend/; source ../venv/bin/activate; python manage.py collectstatic --noinput'
 
       - name: Run migrations
         if: ${{ github.event.inputs.runMigrations == 'true' }}
