@@ -1,0 +1,44 @@
+### Python ###
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Distributed / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+
+# Py Installer 
+*.manigrest
+*.spec
+
+
+# Django
+*.log
+*.log.*
+*.pot
+*.pyc
+__pycache__/
+.env
+.env.*
+!.env.docker
+db.sqlite3
+
+# Project
+temp/
+.models
