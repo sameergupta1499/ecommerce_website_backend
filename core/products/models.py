@@ -26,6 +26,5 @@ class Products(models.Model):
             models.Index(fields=['category', 'gender', 'page']), # Basic index for category, gender, and page columns
             models.Index(fields=['category', 'page']), # Basic index for category and page columns
             models.Index(fields=['gender', 'page']), # Basic index for gender and page columns
-            models.Index(fields=['seller', 'page']), # Basic index for gender and page columns
             models.Index(fields=['page'])
         ]
